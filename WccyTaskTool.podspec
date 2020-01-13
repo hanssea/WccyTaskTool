@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: 网络助手工具，目的为了形成单一颗粒组件，方便项目组各项目使用.
                        DESC
 
   s.homepage         = 'https://github.com/hanssea/WccyTaskTool'
@@ -38,5 +38,6 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'AFNetworking'
+  s.dependency 'MJExtension'
 end

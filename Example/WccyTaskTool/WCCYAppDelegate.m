@@ -7,12 +7,20 @@
 //
 
 #import "WCCYAppDelegate.h"
-
+#import "WccyTaskTool.h"
 @implementation WCCYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    WccyTaskConfig *config = [[WccyTaskConfig alloc] init];
+    config.isOpenLog=YES;
+    [WccyTaskTool sharedTaskTool].config = config;
+    
+    WccyPublicparameter *publicparameter =[[WccyPublicparameter alloc] init];
+    publicparameter.token=@"q239123u919u23u93qu89u9q8u";
+    publicparameter.version=@"3.8.0";
+//    [WccyTaskTool sharedTaskTool].publicparameter = publicparameter;
+    
     return YES;
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "WCCYViewController.h"
-
+#import "WccyTaskTool.h"
 @interface WCCYViewController ()
 
 @end
@@ -17,7 +17,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    
+    
+    [WccyTaskTool sendTask:@"1213123123" params:@{@"waybillUuid":@"1231231231213"} success:^(id  _Nonnull response) {
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

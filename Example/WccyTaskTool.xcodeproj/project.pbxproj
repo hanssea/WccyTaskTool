@@ -59,14 +59,14 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7B4A28A10F1E28E4B9450EC3 /* WccyTaskTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = WccyTaskTool.podspec; path = ../WccyTaskTool.podspec; sourceTree = "<group>"; };
+		7B4A28A10F1E28E4B9450EC3 /* WccyTaskTool.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WccyTaskTool.podspec; path = ../WccyTaskTool.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9375DDE4C623063DB56BB29 /* Pods_WccyTaskTool_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WccyTaskTool_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE233A106D12E9AF1719A293 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AE233A106D12E9AF1719A293 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DBBD383C5F83D3EE4617E94D /* Pods-WccyTaskTool_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WccyTaskTool_Tests.debug.xcconfig"; path = "Target Support Files/Pods-WccyTaskTool_Tests/Pods-WccyTaskTool_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD735DD6E57FA49F945E4BA6 /* Pods-WccyTaskTool_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WccyTaskTool_Example.debug.xcconfig"; path = "Target Support Files/Pods-WccyTaskTool_Example/Pods-WccyTaskTool_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E864F55C05C8508B5A4CAD5D /* Pods-WccyTaskTool_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WccyTaskTool_Example.release.xcconfig"; path = "Target Support Files/Pods-WccyTaskTool_Example/Pods-WccyTaskTool_Example.release.xcconfig"; sourceTree = "<group>"; };
-		FC27D17A0F86C247A6333152 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		FC27D17A0F86C247A6333152 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +193,6 @@
 				DBBD383C5F83D3EE4617E94D /* Pods-WccyTaskTool_Tests.debug.xcconfig */,
 				1BB744E38549D4FF41B1FA34 /* Pods-WccyTaskTool_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -244,9 +243,9 @@
 		6003F582195388D10070C39A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = WCCY;
+				CLASSPREFIX = Wccy;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = hanssea;
+				ORGANIZATIONNAME = "Wccy Team";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
