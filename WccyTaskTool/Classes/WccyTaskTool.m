@@ -56,6 +56,9 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
     [WccyTaskTool sharedTaskTool].sessionManager = [AFHTTPSessionManager manager];
     /*! 打开状态栏的等待菊花 */
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    [WccyTaskTool sharedTaskTool].sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
     /*! 默认请求超时时间15s */
     [WccyTaskTool sharedTaskTool].sessionManager.requestSerializer.timeoutInterval = 15;
     
@@ -85,7 +88,7 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
                 
                 if (config.isOpenLog) {
                     /*! 打印参数 */
-                    NSLog(@"sendTask参数 --- %@\n 结果 responseObject -  %@",params,responseObject);
+                    NSLog(@"sendTask参数 --- %@\n 结果 responseObject -  %@",publicparameter?[publicparameter mj_keyValues]:params,responseObject);
                 }
                 
                 
@@ -96,7 +99,7 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
                 
                 if (config.isOpenLog) {
                     /*! 打印参数 */
-                    NSLog(@"sendTask参数 --- %@\n 结果 error --- %@",params,error);
+                    NSLog(@"sendTask参数 --- %@\n 结果 error --- %@",publicparameter?[publicparameter mj_keyValues]:params,error);
                 }
                 
             }];
@@ -125,7 +128,7 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
                 
                 if (config.isOpenLog) {
                     /*! 打印参数 */
-                    NSLog(@"obtainTask参数 --- %@\n 结果 responseObject -  %@",params,responseObject);
+                    NSLog(@"obtainTask参数 --- %@\n 结果 responseObject -  %@",publicparameter?[publicparameter mj_keyValues]:params,responseObject);
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 if (error) {
@@ -134,7 +137,7 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
                 
                 if (config.isOpenLog) {
                     /*! 打印参数 */
-                    NSLog(@"obtainTask参数 --- %@\n 结果 error --- %@",params,error);
+                    NSLog(@"obtainTask参数 --- %@\n 结果 error --- %@",publicparameter?[publicparameter mj_keyValues]:params,error);
                 }
             }];
         }
