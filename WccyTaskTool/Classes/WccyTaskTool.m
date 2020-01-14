@@ -77,7 +77,7 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
                 publicparameter.dataBody=[params mutableCopy];
                 publicparameter.method=url;
             }
-            [[WccyTaskTool sharedTaskTool].sessionManager POST:[url hasPrefix:@"http"]?url:[NSString stringWithFormat:@"%@/%@",config.formalService,url] parameters:publicparameter?[publicparameter mj_keyValues]:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            [[WccyTaskTool sharedTaskTool].sessionManager POST:publicparameter?config.formalService:[NSString stringWithFormat:@"%@%@",config.formalService,url] parameters:publicparameter?[publicparameter mj_keyValues]:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                 
             } progress:^(NSProgress * _Nonnull uploadProgress) {
                 
@@ -119,7 +119,7 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
                 publicparameter.dataBody=params.mutableCopy;
                 publicparameter.method=url;
             }
-            [[WccyTaskTool sharedTaskTool].sessionManager GET:[url hasPrefix:@"http"]?url:[NSString stringWithFormat:@"%@/%@",config.formalService,url] parameters:publicparameter?[publicparameter mj_keyValues]:params progress:^(NSProgress * _Nonnull downloadProgress) {
+            [[WccyTaskTool sharedTaskTool].sessionManager GET:publicparameter?config.formalService:[NSString stringWithFormat:@"%@%@",config.formalService,url] parameters:publicparameter?[publicparameter mj_keyValues]:params progress:^(NSProgress * _Nonnull downloadProgress) {
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if (responseObject) {
@@ -189,6 +189,11 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
 
 @implementation WccyTaskConfig 
 
+- (void)setTimeoutInterval:(NSTimeInterval)timeoutInterval{
+    _timeoutInterval = timeoutInterval;
+    
+    [WccyTaskTool sharedTaskTool].sessionManager.requestSerializer.timeoutInterval = timeoutInterval;
+}
 
 @end
 

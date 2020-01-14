@@ -9,7 +9,19 @@
 /******
  友情提醒：
  1.菊花转圈和tips未放进此网络组件里，若需要建议做成颗粒组件配合使用
- 
+ 2.例子
+ {
+     "token" : "AQ5DkRrBx_kIYMzIu2tWLcYcpu4vxbd5fCk",
+     "version" : "2.0",
+     "method" : "updateWaybillTransportStatus", //接口方法名
+     "dataBody" : {
+         "waybillUuid" : "运单号",
+         "status" : "状态",  //运输状态 2：提箱 3：到厂 4：装卸开始 5：装卸货完成 6：卸箱
+         "updateTime" : "状态更新时间",  //真实打点时间
+         "lat" : "纬度",
+         "lng" : "经度"
+     }
+ }
  
  *******/
 
@@ -45,14 +57,14 @@ typedef void (^WccyFailure) (NSError *error);
 
 
 /// 使用【POST】请求数据
-/// @param url 接口
+/// @param url 接口方法名【主机地址建议在 WccyTaskConfig 配置】
 /// @param params 参数
 /// @param success 成功回调
 /// @param failure 失败回调
 + (void)sendTask:(NSString *)url  params:(NSDictionary *)params success:(WccySuccess)success failure:(WccyFailure)failure;
 
 /// 使用【GET】请求数据
-/// @param url 接口
+/// @param url 接口方法名【主机地址建议在 WccyTaskConfig 配置】
 /// @param params 参数
 /// @param success 成功回调
 /// @param failure 失败回调
