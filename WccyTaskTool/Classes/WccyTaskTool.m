@@ -57,11 +57,16 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
     /*! 打开状态栏的等待菊花 */
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    [WccyTaskTool sharedTaskTool].sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [WccyTaskTool sharedTaskTool].sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
     
+    [WccyTaskTool sharedTaskTool].sessionManager.requestSerializer.stringEncoding = NSUTF8StringEncoding;
+    
+    [WccyTaskTool sharedTaskTool].sessionManager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     /*! 默认请求超时时间15s */
     [WccyTaskTool sharedTaskTool].sessionManager.requestSerializer.timeoutInterval = 15;
-    
+    /*! responseSerializer */
+    [WccyTaskTool sharedTaskTool].sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    /*! 响应的结构体 */
     [WccyTaskTool sharedTaskTool].sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/css", @"text/xml", @"text/plain", @"application/javascript", @"application/x-www-form-urlencoded", @"image/*", nil];
 }
 
@@ -193,6 +198,29 @@ typedef void(^WccyNetWorkBlock)(WccyNetWorkStatus status);
     _timeoutInterval = timeoutInterval;
     
     [WccyTaskTool sharedTaskTool].sessionManager.requestSerializer.timeoutInterval = timeoutInterval;
+}
+
+- (void)setHttpHeaderFieldDictionary:(NSDictionary *)httpHeaderFieldDictionary{
+    _httpHeaderFieldDictionary = httpHeaderFieldDictionary;
+    if (![httpHeaderFieldDictionary isKindOfClass:[NSDictionary class]])
+    {
+        NSLog(@"请求头数据有误，请检查！");
+        return;
+    }
+    NSArray *keyArray = httpHeaderFieldDictionary.allKeys;
+    
+    if (keyArray.count <= 0)
+    {
+        NSLog(@"请求头数据有误，请检查！");
+        return;
+    }
+    
+    for (NSInteger i = 0; i < keyArray.count; i ++)
+    {
+        NSString *keyString = keyArray[i];
+        NSString *valueString = httpHeaderFieldDictionary[keyString];
+        [[WccyTaskTool sharedTaskTool].sessionManager.requestSerializer setValue:valueString forHTTPHeaderField:keyString];
+    }
 }
 
 @end
